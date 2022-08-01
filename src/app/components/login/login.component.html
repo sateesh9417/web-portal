@@ -1,0 +1,19 @@
+<div class="main-container">
+  <div class="sub-container">
+    <form [formGroup]="loginForm" class="login-form" (ngSubmit)="onLoginSubmit()">
+      <h2 class="text-center m-0">Portal Login</h2>
+      <div class="inputGroup">
+        <input maxlength="10" placeholder="Enter Mobile No." type="text" class="form-control" formControlName="mobileNo" [ngClass]="{'invalidBorder is-invalid':(submitted || loginForm.controls.mobileNo.touched) && (loginForm.controls.mobileNo.errors?.required || loginForm.controls.mobileNo.errors?.pattern || loginForm.hasError('whitespace','mobileNo'))}">
+        <div *ngIf="(loginForm.controls.mobileNo.touched || submitted) && loginForm.controls.mobileNo.errors?.required && !loginForm.controls.mobileNo.errors?.pattern">
+          <small class="text-danger"><b>Mobile No is Required</b></small>
+        </div>
+        <div *ngIf="(loginForm.controls.mobileNo.touched || submitted) && !loginForm.controls.mobileNo.errors?.required && loginForm.controls.mobileNo.errors?.pattern">
+          <small class="text-danger"><b>Enter Valid Mobile No</b></small>
+        </div>
+      </div>
+      <div class="text-center nextButton">
+        <button [disabled]="loginForm.invalid" class="" type="submit">Next</button>
+      </div>
+    </form>
+  </div>
+</div>

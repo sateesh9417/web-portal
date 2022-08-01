@@ -1,0 +1,37 @@
+.dashboard-subContainer{
+  background-color: #E9E9E9;
+  border-radius: 2.5px;
+  padding: 1.5rem 1.3rem 1.3rem 2.6rem;
+  margin-top: .9rem;
+  height: 72.8vh;
+  box-shadow: 0px 1px 1px #00000029;
+}
+.activePath{
+  color:#707070 ;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Lato',sans-serif;
+  line-height: 0;
+}
+.dashboard-subContainer h2{
+  font-size: 18px;
+  font-weight: 600;
+  color: #707070;
+  font-family: 'Lato',sans-serif;
+}
+.status{
+  border: 1.7px solid rgb(112, 112, 112,.4);
+  border-radius: 12px;
+  width: 22%;
+  padding: 35px 10px;
+  text-align: center;
+  background-color: #D5D5D5;
+}
+.status h2{
+  font-size: 36px;
+}
+.status p{
+  color: rgb(112, 112, 112,.9);
+  font-size: 12px;
+  font-weight: 500;
+}

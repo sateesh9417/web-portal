@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.invalidBorder{
+  border: 1.7px solid rgb(255, 0, 0,.4) !important;
+}
+button[disabled]{
+  background-color: rgb(112, 112, 112,.7) !important;
+  border: 1.7px solid rgb(112, 112, 112,.2) !important;
+}

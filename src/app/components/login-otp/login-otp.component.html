@@ -1,0 +1,32 @@
+<div class="main-container">
+  <div class="sub-container">
+    <form [formGroup]="loginOtpForm" class="login-form" (ngSubmit)="onLoginOtpSubmit()">
+      <h2 class="text-center m-0">Portal Login</h2>
+      <div class="inputGroup">
+        <div class="pb-3">
+          <input maxlength="10" placeholder="Enter Mobile No." type="text" class="form-control" formControlName="mobileNo" [ngClass]="{'invalidBorder is-invalid':(submitted || loginOtpForm.controls.mobileNo.touched) && (loginOtpForm.controls.mobileNo.errors?.required || loginOtpForm.controls.mobileNo.errors?.pattern || loginOtpForm.hasError('whitespace','mobileNo'))}">
+          <div *ngIf="(loginOtpForm.controls.mobileNo.touched || submitted) && loginOtpForm.controls.mobileNo.errors?.required && !loginOtpForm.controls.mobileNo.errors?.pattern">
+            <small class="text-danger"><b>Mobile No is Required</b></small>
+          </div>
+          <div *ngIf="(loginOtpForm.controls.mobileNo.touched || submitted) && !loginOtpForm.controls.mobileNo.errors?.required && loginOtpForm.controls.mobileNo.errors?.pattern">
+            <small class="text-danger"><b>Enter Valid Mobile No</b></small>
+          </div>
+        </div>
+        <div class="">
+          <input maxlength="6" placeholder="Enter OTP" type="text" class="form-control" formControlName="otp" [ngClass]="{'invalidBorder is-invalid':(submitted || loginOtpForm.controls.otp.touched) && (loginOtpForm.controls.otp.errors?.required || loginOtpForm.controls.otp.errors?.pattern || loginOtpForm.hasError('whitespace','otp'))}">
+          <div *ngIf="(loginOtpForm.controls.otp.touched || submitted) && loginOtpForm.controls.otp.errors?.required && !loginOtpForm.controls.otp.errors?.pattern">
+            <small class="text-danger"><b>OTP is Required</b></small>
+          </div>
+          <div *ngIf="(loginOtpForm.controls.otp.touched || submitted) && !loginOtpForm.controls.otp.errors?.required && loginOtpForm.controls.otp.errors?.pattern">
+            <small class="text-danger"><b>Enter Valid OTP</b></small>
+          </div>
+        </div>
+      </div>
+      <p class="text-center resendOtp"><a (click)="resendOtp()">Resend OTP</a></p>
+      <div class="text-center nextButton pt-3">
+        <button [disabled]="loginOtpForm.invalid" class="" type="submit">Next</button>
+      </div>
+    </form>
+  </div>
+</div>
+

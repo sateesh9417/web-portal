@@ -1,0 +1,129 @@
+<div class="dashboard-container">
+  <p class="text-right activePath mb-1">Home > <b>Loan Application</b></p>
+  <div class="dashboard-subContainer">
+    <h2 class="mb-2">Loan Application</h2>
+    <div class="d-flex justify-content-between pb-2">
+       <div class="d-flex rowFilter">
+          <span class="pr-2">Show</span>
+          <mat-form-field appearance="fill"  class="numberOfRows">
+            <mat-select name="pageSize" [(ngModel)]="service.pageSize">
+              <mat-option [value]="5">5</mat-option>
+              <mat-option [value]="7">7</mat-option>
+              <mat-option [value]="9">9</mat-option>
+            </mat-select>
+            <mat-icon matSuffix>keyboard_arrow_down</mat-icon>
+          </mat-form-field>
+          <span class="pl-2">Entries</span>
+       </div>
+       <div class="d-flex rowFilterSearch">
+        <mat-form-field appearance="fill" class="state">
+          <mat-select placeholder="State">
+            <mat-option *ngFor="let state of states;" [value]="state.value">{{state.value}}</mat-option>
+          </mat-select>
+          <mat-icon matSuffix>keyboard_arrow_down</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="district">
+          <mat-select placeholder="District">
+            <mat-option *ngFor="let district of districts;" [value]="district.value">{{district.value}}</mat-option>
+          </mat-select>
+          <mat-icon matSuffix>keyboard_arrow_down</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="status">
+          <mat-select placeholder="Show All">
+            <mat-option *ngFor="let status of status;" [value]="status.value">{{status.value}}</mat-option>
+          </mat-select>
+          <mat-icon matSuffix>keyboard_arrow_down</mat-icon>
+        </mat-form-field>
+        <div class="search ml-1">
+          <input class="" placeholder="Search" autocomplete="off" type="text" name="searchTerm" [(ngModel)]="service.searchTerm">
+          <button><i class="fa fa-search"></i></button>
+        </div>
+       </div>
+    </div>
+    <div class="table-container mt-1">
+      <div class="agentsTable">
+        <table class="table border-0 table-bordered mb-0">
+          <thead>
+          <tr>
+            <th scope="col" sortable="referenceNo" (sort)="onSort($event)">Reference No.</th>
+            <th scope="col" sortable="customerName" (sort)="onSort($event)">Customer Name</th>
+            <th scope="col" sortable="phoneNo" (sort)="onSort($event)">Phone No.</th>
+            <th scope="col" sortable="loanAmount" (sort)="onSort($event)">Loan Amount</th>
+            <th scope="col" sortable="bank" (sort)="onSort($event)">Bank</th>
+            <th scope="col" sortable="referrer" (sort)="onSort($event)">Referrer</th>
+            <th scope="col" sortable="assignedTo" (sort)="onSort($event)">Assigned To</th>
+          </tr>
+          </thead>
+          <tbody *ngIf="!(service.loading$ | async)">
+          <tr *ngFor="let data of loanData$ | async">
+            <th>
+              <span (click)="onClickReferenceNo(data)">
+                <ngb-highlight [result]="data.referenceNo" [term]="service.searchTerm"></ngb-highlight>
+              </span>
+            </th>
+            <td>
+              <ngb-highlight [result]="data.customerName" [term]="service.searchTerm"></ngb-highlight>
+            </td>
+            <td>
+              <ngb-highlight [result]="data.phoneNo" [term]="service.searchTerm"></ngb-highlight>
+            </td>
+            <td>
+              ₹
+              <ngb-highlight [result]="data.loanAmount | number" [term]="service.searchTerm"></ngb-highlight>
+            </td>
+            <td>
+                <ngb-highlight [result]="data.bank" [term]="service.searchTerm"></ngb-highlight>
+            </td>
+            <td class="referrer">
+              <span (click)="popoverClick(data)"><ngb-highlight placement="bottom" [ngbPopover]="popContent" [result]="data.referrer" [term]="service.searchTerm"></ngb-highlight></span>
+            </td>
+            <td class="assignedApp">
+              <button *ngIf="data.assignedTo == 'Assign'">
+                <ngb-highlight [result]="data.assignedTo" [term]="service.searchTerm"></ngb-highlight>
+              </button>
+              <span *ngIf="data.assignedTo != 'Assign'">
+                <ngb-highlight [result]="data.assignedTo" [term]="service.searchTerm"></ngb-highlight>
+              </span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="text-center pt-4" style="color: #707070;" *ngIf="service.loading$ | async">
+          <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+        <div style="color: #707070;" class="text-center pt-4" *ngIf="(total$ | async) == 0 && !(service.loading$ | async)">
+          <h4 class="font-weight-bold">No Data Found</h4>
+       </div>
+      </div>
+
+      <div class="d-flex justify-content-between footerTable pt-1">
+       <div>
+        <p class="m-0">Showing {{startCount != null ? startCount : 0}} to {{endCount != null ? endCount : 0}} of {{total$ | async}} Entries</p>
+       </div>
+        <ngb-pagination [collectionSize]="(total$ | async)!" [(page)]="service.page" [pageSize]="4">
+          <ng-template ngbPaginationPrevious>Prev</ng-template>
+          <ng-template ngbPaginationNext>Next</ng-template>
+          <ng-template ngbPaginationNumber let-p>{{ getPageSymbol(p) }}</ng-template>
+        </ngb-pagination>
+       </div>
+    </div>
+  </div>
+  <ng-template #popContent>
+    <div class="popoverData">
+      <div class="pb-2">
+        <p>Referrer Name:</p>
+        <p>{{popoverData?.referrer}}</p>
+       </div>
+       <div class="pb-2">
+         <p>Referrer Phone No:</p>
+         <p>{{popoverData?.phoneNo}}</p>
+        </div>
+        <div class="pb-2">
+         <p>Referrer Agent/ Employee ID:</p>
+         <p>{{"2054"}}</p>
+        </div>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,224 @@
+.ortal-container .top-nav{
+  border: 1px solid rgb(112, 112, 112,.4);
+}
+
+.form-inline {
+	display: inline-block;
+}
+.navbar-header.col {
+	padding: 0 !important;
+}
+.navbar-toggler{
+  border: 1.7px solid rgb(112, 112, 112,.4);
+  background-color: #FFFFFF;
+  padding: 0.25rem 0.55rem;
+}
+.navbar-light .navbar-toggler-icon{
+  background-size: 75%;
+}
+.navbar {
+  position: sticky !important;
+  top: 0;
+	padding: .6rem 1.5rem;
+	border-bottom: 1px solid #d6d6d6;
+  border: 1.7px solid rgb(112, 112, 112,.4);
+  background-color: #D5D5D5 !important;
+}
+.nav-link img {
+	border-radius: 50%;
+	width: 36px;
+	height: 36px;
+	margin: -5px 10px 0px 0;
+	float: left;
+}
+.navbar .navbar-brand {
+	color: #555;
+	padding-left: 0;
+	padding-right: 50px;
+	font-family: 'Lato', sans-serif;
+  border: 1.7px solid rgb(112, 112, 112,.4);
+  background-color: #FFFFFF;
+}
+.navbar .navbar-brand i {
+	font-size: 20px;
+	margin-right: 5px;
+}
+.search-box {
+	position: relative;
+}
+.search-box input {
+	box-shadow: none;
+	padding-right: 35px;
+	border-radius: 3px !important;
+}
+.search-box .input-group-addon {
+	min-width: 35px;
+	border: none;
+	background: transparent;
+	position: absolute;
+	right: 0;
+	z-index: 9;
+	padding: 7px;
+	height: 100%;
+}
+.search-box i {
+	color: #707070;
+	font-size: 19px;
+}
+.navbar .nav-item i {
+	font-size: 18px;
+}
+.dropdown-divider {
+  height: 0;
+  margin: .05rem 0;
+  overflow: hidden;
+  border-top: 1.7px solid rgb(112, 112, 112,.4);
+}
+.navbar .nav-item.open > a {
+	background: none !important;
+}
+.navbar .dropdown-menu {
+	border-radius: 0px;
+  border: 1.7px solid rgb(112, 112, 112,.4);
+  left: 25px;
+  top: 53.5px;
+  margin: 0;
+  padding: 0;
+  min-width: 6rem !important;
+  box-shadow: 0px 3px 6px #00000029;
+}
+.navbar .dropdown-menu a {
+	color: #707070;
+	padding: 8px 20px;
+	line-height: normal;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.navbar .dropdown-menu a:active{
+  background-color: #FFFFFF;
+}
+.fa-bell-o{
+  font-size: 26px !important;
+}
+.fa-angle-down,.fa-angle-up{
+  font-weight: 600;
+  position: relative;
+  top: 3px;
+  z-index: -1;
+}
+.dropdown-toggle{
+  cursor: pointer;
+}
+.navbar .dropdown-menu a:hover, .navbar .dropdown-menu a:active {
+	color: #707070;
+}
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+  color: #707070;
+}
+.navbar-light .navbar-nav .show>.nav-link{
+  color: #707070;
+}
+.navbar .dropdown-item .material-icons {
+	font-size: 21px;
+	line-height: 16px;
+	vertical-align: middle;
+	margin-top: -2px;
+}
+.navbar .badge {
+	color: #fff;
+	background: #f44336;
+	font-size: 11px;
+	border-radius: 20px;
+	position: absolute;
+	min-width: 10px;
+	padding: 4px 6px 0;
+	min-height: 18px;
+	top: 5px;
+}
+.navbar a.notifications, .navbar a.messages {
+	position: relative;
+	margin-right: 10px;
+}
+.navbar a.messages {
+	margin-right: 20px;
+}
+.navbar a.notifications .badge {
+	margin-left: -8px;
+}
+.navbar a.messages .badge {
+	margin-left: -4px;
+}
+.navbar .active a, .navbar .active a:hover, .navbar .active a:focus {
+	background: transparent !important;
+}
+
+.dropdown-toggle::after{
+  display: none !important;
+}
+
+.side-nav-container .side-nav{
+  width: 16%;
+  height: 88.5vh;
+  background-color: #8D8D8D;
+}
+.side-nav-container .side-nav ul li a{
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 500;
+}
+.side-nav-container .side-nav ul li a:hover{
+  text-decoration: none;
+}
+.side-nav-container .side-nav ul li:hover{
+  background-color: #474747;
+}
+.activeLink{
+ background-color: #474747;;
+}
+.side-nav-container .side-nav ul li{
+  border-bottom:1.7px solid #D5D5D5;
+  padding: 0.65rem 1.5rem;
+  cursor: pointer;
+}
+.side-nav-container .conponents-container{
+  width: 84%;
+  padding:1.3rem 2.6rem 0rem 1.8rem;
+  /* border: 1.7px solid rgb(112, 112, 112,.4); */
+}
+.conponents-container p,.conponents-container h3{
+  color:  rgb(112, 112, 112,.9);
+  font-family: 'Lato',sans-serif;
+}
+.conponents-container p{
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .25px;
+  line-height: 0.8;
+}
+.conponents-container h3{
+  font-size: 22px;
+  letter-spacing: -.5px;
+}
+
+
+
+
+
+
+
+@media (min-width: 1200px){
+	.form-inline .input-group {
+		width: 300px;
+		margin-left: 30px;
+	}
+}
+@media (max-width: 1199px){
+	.form-inline {
+		display: block;
+		margin-bottom: 10px;
+	}
+	.input-group {
+		width: 100%;
+	}
+}

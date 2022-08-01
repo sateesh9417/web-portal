@@ -1,0 +1,48 @@
+<div class="portal-container">
+  <!-- <div class="top-nav d-flex justify-content-between">
+    <div class="brand"></div>
+    <div class="userText"></div>
+  </div> -->
+
+    <nav class="navbar navbar-expand-xl navbar-light bg-light">
+      <a href="" class="navbar-brand"><i class="fa fa-cube"></i>
+        Brand
+      </a>
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Collection of nav links, forms, and other content for toggling -->
+      <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-item nav-link notifications"><i class="fa fa-bell-o"></i><span class="badge">{{''}}</span></a>
+          <div class="nav-item dropdown">
+            <a (click)="logout();" data-toggle="dropdown" class="nav-link dropdown-toggle user-action pr-0"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBgZbchuTiUtA3Egi1arN4BEQeoTaUtutQ8A&usqp=CAU" class="avatar" alt="Avatar"><span style="position: absolute;top: 5.5px;font-size: 15px;font-weight: 600;">Suraj</span><span style="position: relative;left: 0;top: 7.5px;font-size: 8px;font-weight: 600;">6300877556</span> <i class="fa fa-angle-down pl-1" *ngIf="dropdown"></i><i *ngIf="!dropdown" class="fa fa-angle-up pl-1"></i></a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item"> Profile</a>
+              <a class="dropdown-item"> Settings</a>
+              <div class="dropdown-divider"></div>
+              <div class="dropdown-divider"></div>
+              <a href="" class="dropdown-item"> Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  <div class="d-flex side-nav-container">
+    <div class="side-nav">
+       <ul class="list-unstyled">
+        <li routerLink="/web-portal" [ngClass]="{'activeLink':isDashboard}"><a>Dashboard</a></li>
+        <li routerLink="/web-portal/loan-app" [ngClass]="{'activeLink':isLoanApp}"><a>Loan Application</a></li>
+        <li routerLink="/web-portal/agents" [ngClass]="{'activeLink':isAgents}"><a>Agents</a></li>
+       </ul>
+    </div>
+    <div class="conponents-container">
+      <div>
+        <h3 class="mb-2">Hola Suraj,</h3>
+         <p class="mb-0">Welcome to tvam</p>
+      </div>
+        <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
